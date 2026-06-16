@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(47, 111, 115, 0.11), transparent 28rem),
+    linear-gradient(90deg, rgba(31, 31, 31, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, #f5e7cb 0%, #f8f3e8 42%, #eef3ed 100%);
+  background-size: auto, 22px 22px, auto;
+  color: #1f1f1f;
+}
+
+a,
+button,
+summary,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #c9a227;
+  color: #1f1f1f;
+}
+
+.reveal-up {
+  animation: reveal-up 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-up-delay {
+  animation: reveal-up 820ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+.magnetic-link {
+  position: relative;
+  transition: color 180ms ease, transform 220ms ease, background-color 220ms ease;
+}
+
+.magnetic-link::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.45rem;
+  left: 1rem;
+  height: 2px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+
+.magnetic-link:hover {
+  transform: translateY(-1px);
+}
+
+.magnetic-link:hover::after {
+  transform: scaleX(1);
+}
+
+.document-card,
+.adventure-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.document-card::before,
+.adventure-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    repeating-linear-gradient(0deg, rgba(31, 31, 31, 0.035) 0 1px, transparent 1px 28px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 250, 240, 0.84));
+  opacity: 0.68;
+  transition: opacity 260ms ease;
+}
+
+.document-card:hover::before,
+.adventure-card:hover::before {
+  opacity: 0.95;
+}
+
+.document-card:hover .card-arrow,
+.adventure-card:hover .card-arrow {
+  transform: translateX(0.28rem);
+}
+
+.passport-cover {
+  background:
+    radial-gradient(circle at 30% 18%, rgba(201, 162, 39, 0.22), transparent 9rem),
+    linear-gradient(135deg, #123735, #0d2428 58%, #1b3f38);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 10px 0 18px rgba(255, 255, 255, 0.06),
+    0 24px 70px rgba(31, 31, 31, 0.22);
+}
+
+.passport-stamp {
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  transform: rotate(-8deg);
+}
+
+.stamp-pop {
+  animation: stamp-pop 620ms cubic-bezier(0.17, 0.84, 0.44, 1) both;
+}
+
+.paper-sheet {
+  background:
+    linear-gradient(90deg, rgba(201, 162, 39, 0.16) 0 1px, transparent 1px),
+    linear-gradient(180deg, #fffdf7, #fff7e7);
+  background-size: 18px 18px, auto;
+}
+
+.file-tab {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.field-line {
+  background-image: linear-gradient(90deg, rgba(31, 31, 31, 0.2), rgba(31, 31, 31, 0.06));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+.snap-row {
+  scrollbar-width: none;
+}
+
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stamp-pop {
+  0% {
+    opacity: 0;
+    transform: rotate(-8deg) scale(1.22);
+  }
+  62% {
+    opacity: 1;
+    transform: rotate(-8deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-8deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.75rem;
+  }
+}

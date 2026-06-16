@@ -1,0 +1,14 @@
+{
+  "brand": "China Travel Readiness Guide",
+  "nav": {
+    "before": "Travel Guide",
+    "during": "Choose City",
+    "menu": "Menu"
+  },
+  "bottom": {
+    "home": "Home",
+    "checklist": "Checklist",
+    "payment": "Payment",
+    "help": "Help"
+  }
+}
